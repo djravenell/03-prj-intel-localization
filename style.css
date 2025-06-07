@@ -1,0 +1,222 @@
+/* Add your CSS here */
+
+/* Set a background color for the whole page */
+body {
+  background-color: #f5f7fa; /* light gray-blue */
+  margin: 0;
+  /* Use a modern, clean sans-serif font similar to Intel's branding */
+  font-family: 'Segoe UI', 'Arial', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: #003865; /* Intel dark blue for main text */
+  letter-spacing: 0.01em;
+}
+
+/* Style the hero section */
+header {
+  background-color: #0068b5; /* Intel blue */
+  color: #ffffff; /* white text for contrast */
+  padding: 56px 0 48px 0; /* more space above and below */
+  text-align: center; /* center all content */
+  box-shadow: 0 4px 24px rgba(0,104,181,0.08); /* subtle blue shadow */
+}
+
+/* Style the logo image in the hero section */
+header img {
+  width: 140px; /* slightly larger logo */
+  margin-bottom: 28px; /* more space below the logo */
+}
+
+/* Make the main heading large and bold */
+header h1 {
+  font-size: 2.8em; /* larger text */
+  margin: 12px 0; /* space above and below */
+  font-weight: 700;
+  letter-spacing: 1.5px; /* more spacing between letters */
+  text-shadow: 0 2px 8px rgba(0,104,181,0.10); /* subtle blue shadow */
+}
+
+/* Style the subheading/description */
+header p {
+  font-size: 1.3em; /* slightly larger than normal text */
+  max-width: 620px; /* limit width for readability */
+  margin: 0 auto;
+  margin-top: 24px;
+  line-height: 1.6; /* more space between lines */
+  color: #e3f0fb; /* lighter blue for subheading */
+}
+
+/* Timeline Cards Section */
+section {
+  /* Use flexbox to arrange cards in a row */
+  display: flex;
+  flex-direction: row; /* cards side by side */
+  overflow-x: auto; /* enable horizontal scrolling */
+  gap: 20px; /* space between cards */
+  padding: 30px 10px; /* space around the section */
+  scroll-behavior: smooth; /* smooth scrolling */
+  background: #e3f0fb; /* very light blue background for timeline area */
+  border-radius: 18px;
+  margin: 36px 24px 24px 24px; /* more space around timeline */
+  box-shadow: 0 2px 16px rgba(0,104,181,0.07);
+
+  /* Enable scroll snap for horizontal timeline */
+  scroll-snap-type: x mandatory; /* snap horizontally, must stop at snap points */
+}
+
+/* Each card inside the timeline */
+section > div {
+  background-color: #ffffff; /* white background for cards */
+  border-radius: 14px; /* more rounded corners */
+  box-shadow: 0 2px 12px rgba(0,104,181,0.10); /* blue-tinted shadow */
+  min-width: 260px;
+  max-width: 320px;
+  flex: 0 0 260px;
+  padding: 28px 20px 24px 20px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #b2d5f7; /* subtle blue border */
+
+  /* Make each card a snap point */
+  scroll-snap-align: start; /* snap to the start of each card */
+}
+
+/* Add a hover effect to cards */
+section > div:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 6px 24px rgba(0,104,181,0.18);
+  border-color: #0068b5; /* highlight border on hover */
+}
+
+/* Overlay effect for timeline cards */
+.card-overlay {
+  /* Cover the whole card */
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,104,181,0.97); /* deeper Intel blue with transparency */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* hidden by default */
+  pointer-events: none;
+  transition: opacity 0.4s;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 2;
+  font-family: inherit;
+}
+
+/* Show the overlay on hover */
+section > div:hover .card-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Hide the default content when overlay is visible */
+section > div:hover h2,
+section > div:hover h3,
+section > div:hover img {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+/* Make overlay paragraph readable */
+.card-overlay p {
+  font-size: 1.08em;
+  line-height: 1.6;
+  margin: 0;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Make images inside cards fit nicely and keep aspect ratio */
+section > div img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  box-sizing: border-box;
+  border: 1.5px solid #b2d5f7; /* subtle blue border around images */
+  background: #f5f7fa;
+}
+
+/* Style headings inside cards */
+section > div h2, section > div h3 {
+  color: #0068b5; /* Intel blue for headings */
+  font-weight: 700;
+  margin: 10px 0 8px 0;
+  font-size: 1.25em;
+  letter-spacing: 0.5px;
+}
+
+/* Style for the info paragraph below the timeline */
+.timeline-info {
+  text-align: center;
+  font-size: 1.15em;
+  color: #0068b5;
+  margin: 28px 0 36px 0;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* Hide the info paragraph on small screens */
+@media (max-width: 700px) {
+  .timeline-info {
+    display: none;
+  }
+}
+
+/* Responsive: Stack cards vertically on small screens */
+@media (max-width: 700px) {
+  section {
+    flex-direction: column;
+    gap: 16px;
+    overflow-x: visible;
+    padding: 20px 5px;
+    background: #f5f7fa; /* remove blue background for mobile */
+    border-radius: 0;
+    margin: 0;
+    box-shadow: none;
+
+    /* Disable scroll snap on small screens */
+    scroll-snap-type: none;
+  }
+  section > div {
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0 18px 0;
+    overflow: visible;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+
+    /* Disable scroll snap on small screens */
+    scroll-snap-align: none;
+  }
+  /* On small screens, always show overlay content as normal text */
+  .card-overlay {
+    position: static;
+    opacity: 1;
+    background: none;
+    color: #003865;
+    pointer-events: auto;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+    display: block;
+    font-weight: 500;
+  }
+  /* On small screens, don't hide the card content when "hovered" */
+  section > div:hover h2,
+  section > div:hover h3,
+  section > div:hover img {
+    opacity: 1;
+  }
+}
