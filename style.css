@@ -45,7 +45,7 @@ header p {
 }
 
 /* Timeline Cards Section */
-section {
+.timeline-section {
   /* Use flexbox to arrange cards in a row */
   display: flex;
   flex-direction: row; /* cards side by side */
@@ -63,7 +63,7 @@ section {
 }
 
 /* Each card inside the timeline */
-section > div {
+.timeline-section > div {
   background-color: #ffffff; /* white background for cards */
   border-radius: 14px; /* more rounded corners */
   box-shadow: 0 2px 12px rgba(0,104,181,0.10); /* blue-tinted shadow */
@@ -82,7 +82,7 @@ section > div {
 }
 
 /* Add a hover effect to cards */
-section > div:hover {
+.timeline-section > div:hover {
   transform: translateY(-10px) scale(1.04);
   box-shadow: 0 6px 24px rgba(0,104,181,0.18);
   border-color: #0068b5; /* highlight border on hover */
@@ -110,15 +110,15 @@ section > div:hover {
 }
 
 /* Show the overlay on hover */
-section > div:hover .card-overlay {
+.timeline-section > div:hover .card-overlay {
   opacity: 1;
   pointer-events: auto;
 }
 
 /* Hide the default content when overlay is visible */
-section > div:hover h2,
-section > div:hover h3,
-section > div:hover img {
+.timeline-section > div:hover h2,
+.timeline-section > div:hover h3,
+.timeline-section > div:hover img {
   opacity: 0;
   transition: opacity 0.2s;
 }
@@ -133,7 +133,7 @@ section > div:hover img {
 }
 
 /* Make images inside cards fit nicely and keep aspect ratio */
-section > div img {
+.timeline-section > div img {
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -146,7 +146,7 @@ section > div img {
 }
 
 /* Style headings inside cards */
-section > div h2, section > div h3 {
+.timeline-section > div h2, .timeline-section > div h3 {
   color: #0068b5; /* Intel blue for headings */
   font-weight: 700;
   margin: 10px 0 8px 0;
@@ -173,7 +173,7 @@ section > div h2, section > div h3 {
 
 /* Responsive: Stack cards vertically on small screens */
 @media (max-width: 700px) {
-  section {
+  .timeline-section {
     flex-direction: column;
     gap: 16px;
     overflow-x: visible;
@@ -186,7 +186,7 @@ section > div h2, section > div h3 {
     /* Disable scroll snap on small screens */
     scroll-snap-type: none;
   }
-  section > div {
+  .timeline-section > div {
     max-width: 100%;
     min-width: 0;
     width: 100%;
@@ -214,9 +214,9 @@ section > div h2, section > div h3 {
     font-weight: 500;
   }
   /* On small screens, don't hide the card content when "hovered" */
-  section > div:hover h2,
-  section > div:hover h3,
-  section > div:hover img {
+  .timeline-section > div:hover h2,
+  .timeline-section > div:hover h3,
+  .timeline-section > div:hover img {
     opacity: 1;
   }
 }
