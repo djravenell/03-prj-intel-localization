@@ -253,12 +253,20 @@
       <!-- Inline Bootstrap newsletter form -->
       <form class="row justify-content-center align-items-center" style="max-width: 500px; margin: 0 auto;">
         <!-- Email input field (takes most of the width) -->
-        <div class="col-8">
+        <div class="col-md-8 col-12 mb-2 mb-md-0">
+          <!-- 
+            On small screens, col-12 makes the input full width and mb-2 adds space below.
+            On medium and up, col-8 keeps the input wide and removes bottom margin.
+          -->
           <label for="newsletter-email" class="form-label visually-hidden">Email address</label>
           <input type="email" class="form-control" id="newsletter-email" placeholder="Enter your email" required>
         </div>
         <!-- Submit button (next to input) -->
-        <div class="col-4">
+        <div class="col-md-4 col-12">
+          <!-- 
+            On small screens, col-12 makes the button full width below the input.
+            On medium and up, col-4 keeps the button next to the input.
+          -->
           <!-- Use the same class as the Learn More buttons for consistent styling -->
           <button type="submit" class="learn-more-btn w-100">Subscribe</button>
         </div>

@@ -227,14 +227,20 @@ header p {
   color: #fff;
   border: none;
   border-radius: 6px;
-  padding: 10px 22px;
+  /* Remove fixed padding so Bootstrap's .w-100 and .form-control work well */
+  padding: 0.5em 1.2em; /* Use relative units for better scaling */
   font-size: 1em;
   font-weight: 600;
   margin-top: 12px;
   cursor: pointer;
   transition: background 0.2s;
-  /* Add a subtle box-shadow for a modern look */
   box-shadow: 0 2px 8px rgba(0,104,181,0.10);
+  /* Let Bootstrap control width and height for form buttons */
+}
+
+/* Only add margin-top if not inside a form row */
+.learn-more-btn:not(.w-100) {
+  margin-top: 12px;
 }
 
 .learn-more-btn:hover,
