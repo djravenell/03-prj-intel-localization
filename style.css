@@ -182,8 +182,6 @@ header p {
     border-radius: 0;
     margin: 0;
     box-shadow: none;
-
-    /* Disable scroll snap on small screens */
     scroll-snap-type: none;
   }
   .timeline-section > div {
@@ -191,14 +189,15 @@ header p {
     min-width: 0;
     width: 100%;
     box-sizing: border-box;
-    padding: 0 0 18px 0;
+    /* Keep card look on mobile */
+    padding: 28px 20px 24px 20px;
+    background-color: #ffffff;
+    border-radius: 14px;
+    border: 2px solid #b2d5f7;
+    box-shadow: 0 2px 12px rgba(0,104,181,0.10);
+    margin-bottom: 16px;
     overflow: visible;
-    border-radius: 0;
-    border: none;
-    box-shadow: none;
-
-    /* Disable scroll snap on small screens */
-    scroll-snap-align: none;
+    position: relative;
   }
   /* On small screens, always show overlay content as normal text */
   .card-overlay {
@@ -219,4 +218,36 @@ header p {
   .timeline-section > div:hover img {
     opacity: 1;
   }
+}
+
+/* Style for the Learn More buttons */
+.learn-more-btn {
+  display: inline-block;
+  background-color: #0068b5; /* Intel blue */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 22px;
+  font-size: 1em;
+  font-weight: 600;
+  margin-top: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+  /* Add a subtle box-shadow for a modern look */
+  box-shadow: 0 2px 8px rgba(0,104,181,0.10);
+}
+
+.learn-more-btn:hover,
+.learn-more-btn:focus {
+  background-color: #003865; /* darker Intel blue */
+  color: #fff;
+  outline: none;
+}
+
+/* Make SVG icons inline and match the height of the heading text */
+.icon-inline {
+  height: 1em;      /* Match the height of the text */
+  width: auto;      /* Keep width proportional */
+  vertical-align: middle; /* Align with text */
+  margin-right: 8px;      /* Space between icon and text */
 }
